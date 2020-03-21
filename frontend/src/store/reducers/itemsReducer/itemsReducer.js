@@ -1,8 +1,9 @@
-import {FETCH_ITEM_SUCCESS, FETCH_ITEMS_SUCCESS} from "../../actions/itemsAction/itemsAction";
+import {DELETE_ITEM_SUCCESS, FETCH_ITEM_SUCCESS, FETCH_ITEMS_SUCCESS} from "../../actions/itemsAction/itemsAction";
 
 const initialState = {
     items: [],
-    item: []
+    item: [],
+    message: null
 };
 
 const itemsReducer = (state = initialState, action) => {
@@ -11,6 +12,8 @@ const itemsReducer = (state = initialState, action) => {
             return {...state, items: action.items};
         case FETCH_ITEM_SUCCESS:
             return {...state, item: action.item};
+        case DELETE_ITEM_SUCCESS:
+            return {...state, message: action.message};
         default:
             return state;
     }

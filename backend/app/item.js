@@ -5,7 +5,7 @@ const Post = require('../models/Item');
 const auth = require('../middleware/auth');
 
 router.get('/:id', async (req, res) => {
-    const posts = await Post.find({_id: req.params.id});
+    const posts = await Post.find({_id: req.params.id}).populate('user', {displayName: 1, phoneNumber: 1});
     return res.send(posts)
 });
 

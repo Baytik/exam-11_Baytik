@@ -48,7 +48,7 @@ class Posts extends Component {
                             <img src={apiURL + '/uploads/' + item.image} alt=""/>
                             <p>{item.title}</p>
                             <p>{item.price + '$'}</p>
-                            <NavLink to="/item">View Product</NavLink>
+                            <NavLink to={`/item/${item._id}`}>View Product</NavLink>
                         </div>
                     ))}
                 </div>

@@ -6,6 +6,7 @@ import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
 import newItem from "./Components/newItem/newItem";
 import Items from "./Components/Items/Items";
+import Item from "./Components/Item/Item";
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
               <Route path="/register" component={Register}/>
               <Route path="/login" component={Login}/>
               <Route path="/new_item" component={newItem}/>
+              <Route path="/item/:id" component={Item}/>
           </Switch>
         </div>
     )

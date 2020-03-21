@@ -11,6 +11,7 @@ class NewPost extends Component {
         title: '',
         description: '',
         image: null,
+        price: '',
         category: CATEGORIES[0]
     };
 
@@ -23,13 +24,14 @@ class NewPost extends Component {
         formData.append('description', this.state.description);
         formData.append('image', this.state.image);
         formData.append('category', this.state.category);
+        formData.append('price', this.state.price);
         await this.props.createItem(formData);
     };
 
     render() {
         if (!this.props.user) return <Redirect to="/login"/>;
         return (
-            <form className="new-item">
+            <div className="new-item">
                 <div className="new-item-block">
                     <span>Title</span>
                     <input
@@ -67,10 +69,20 @@ class NewPost extends Component {
                         ))}
                     </select>
                 </div>
+                <div className="new-item-block">
+                    <span>Price</span>
+                    <input
+                        type="number"
+                        className="input-5"
+                        name="price"
+                        value={this.state.price}
+                        onChange={this.changeInputHandler}
+                    />
+                </div>
                 <div>
                     <button className="btn" onClick={this.postNewItem}>Create item</button>
                 </div>
-            </form>
+            </div>
         );
     }
 }

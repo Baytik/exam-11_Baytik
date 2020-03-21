@@ -1,25 +1,25 @@
 import axiosAPI from "../../../axiosAPI";
 import {push} from 'connected-react-router';
 
-export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
-export const FETCH_POSTS_ERROR = 'FETCH_POSTS_ERROR';
+export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS';
+export const FETCH_ITEMS_ERROR = 'FETCH_ITEMS_ERROR';
 export const FETCH_POST_SUCCESS = 'FETCH_POST_SUCCESS';
 
 export const CREATE_ITEM_ERROR = 'CREATE_ITEM_ERROR';
 
-export const fetchPostsSuccess = (posts) => ({type: FETCH_POSTS_SUCCESS, posts});
-export const fetchPostsError = (error) => ({type: FETCH_POSTS_ERROR, error});
+export const fetchItemsSuccess = (items) => ({type: FETCH_ITEMS_SUCCESS, items});
+export const fetchItemsError = (error) => ({type: FETCH_ITEMS_ERROR, error});
 export const fetchPostSuccess = (post) => ({type: FETCH_POST_SUCCESS, post});
 
 export const createItemError = (error) => ({type: CREATE_ITEM_ERROR, error});
 
-export const fetchPosts = () => {
+export const fetchItems = (id) => {
     return async (dispatch) => {
         try {
-            const response = await axiosAPI.get('/posts');
-            dispatch(fetchPostsSuccess(response.data))
+            const response = await axiosAPI.get(`/items/${id}`);
+            dispatch(fetchItemsSuccess(response.data))
         } catch (error) {
-            dispatch(fetchPostsError(error))
+            dispatch(fetchItemsError(error))
         }
     }
 };
@@ -30,7 +30,7 @@ export const fetchPost = (id) => {
             const response = await axiosAPI.get(`/posts/${id}`);
             dispatch(fetchPostSuccess(response.data))
         } catch (error) {
-            dispatch(fetchPostsError(error))
+            dispatch(fetchItemsError(error))
         }
     }
 };

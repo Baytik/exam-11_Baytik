@@ -5,6 +5,7 @@ import Header from "./Components/Header/Header";
 import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
 import newItem from "./Components/newItem/newItem";
+import Items from "./Components/Items/Items";
 
 class App extends Component {
   render() {
@@ -12,9 +13,11 @@ class App extends Component {
         <div className="App">
           <Header/>
           <Switch>
-            <Route path="/" exact component={newItem}/>
-            <Route path="/register" component={Register}/>
-            <Route path="/login" component={Login}/>
+              <Route path="/" exact component={Items}/>
+              <Route path="/items/:id" component={Items}/>
+              <Route path="/register" component={Register}/>
+              <Route path="/login" component={Login}/>
+              <Route path="/new_item" component={newItem}/>
           </Switch>
         </div>
     )

@@ -1,0 +1,44 @@
+.categories-block {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.categories-block a {
+    color: black;
+    text-decoration: none;
+}
+.categories-block li {
+    margin: 5px 0;
+}
+.categories-block a:hover {
+    text-decoration: underline;
+}
+.Items {
+    display: flex;
+}
+.items-block {
+    margin-left: 15%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.items-block h3 {
+    font-size: 24px;
+    font-weight: normal;
+    text-transform: capitalize;
+}
+.item-flex {
+    border: 2px solid black;
+    padding: 7px;
+    margin: 10px 20px;
+    text-align: center;
+}
+.item-flex img {
+    width: 150px;
+    height: 150px;
+}
+.item-flex a {
+    color: black;
+    text-decoration: none;
+}
+.item-flex a:hover {
+    text-decoration: underline;
+}

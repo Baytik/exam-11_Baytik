@@ -25,6 +25,13 @@
     margin-left: 19%;
     font-size: 18px;
 }
+.input-5 {
+    margin-left: 20%;
+    border: 2px solid black;
+    font-size: 18px;
+    width: 100px;
+    padding: 5px;
+}
 select {
     font-size: 18px;
     margin-left: 16%;

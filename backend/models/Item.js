@@ -19,6 +19,10 @@ const PostSchema = new mongoose.Schema({
       required: true,
       enum: ['computers', 'cars', 'other']
     },
+    price: {
+      type: Number,
+      required: true
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',

@@ -17,7 +17,7 @@ export const postRegister = (user) => {
     return async (dispatch) => {
         try {
             await axiosAPI.post('/users', user);
-            dispatch(push('/login'))
+            dispatch(push('/login'));
         } catch (e) {
             dispatch(errorMessage(e))
         }
@@ -30,6 +30,7 @@ export const loginUser = user => {
             const response = await axiosAPI.post('/users/sessions', user);
             dispatch(loginUserSuccess(response.data));
             dispatch(push('/'));
+            alert('Welcome');
         } catch (error) {
             dispatch(loginUserError(error.response.data))
         }
@@ -43,6 +44,7 @@ export const logoutUser = () => {
             await axiosAPI.delete('/users/sessions',{headers: {'Authorization': token.token}});
             dispatch(logoutUserSuccess());
             dispatch(push('/'));
+            alert('Bye bye, see you again');
         } catch (error) {
             dispatch(errorMessage(error))
         }

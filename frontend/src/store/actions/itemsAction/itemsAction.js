@@ -44,7 +44,8 @@ export const createItem = (item) => {
         const token = getState().user.user;
         try {
             await axiosAPI.post('/items', item, {headers: {'Authorization': token.token}});
-            dispatch(push('/'))
+            dispatch(push('/'));
+            alert('Item successfully added')
         } catch (error) {
             dispatch(createItemError(error))
         }
@@ -60,7 +61,8 @@ export const deleteItem = (id) => {
           dispatch(push('/'))
       } catch (error) {
           dispatch(deleteItemError(error.response.data));
-          dispatch(push('/'))
+          dispatch(push('/'));
+          alert('Item successfully deleted')
       }
   }
 };

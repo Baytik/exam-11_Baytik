@@ -12,8 +12,9 @@ class Posts extends Component {
         let id = this.props.match.params.id;
         if (id === undefined) {
             this.props.fetchItems('/');
-        }
+        } else {
         this.props.fetchItems(id);
+        }
     }
 
     componentDidUpdate(prevProps) {

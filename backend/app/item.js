@@ -21,7 +21,7 @@ router.delete('/:id', auth, async (req, res) => {
             return res.status(400).send(e);
         }
     } else {
-        res.status(404).send({message: 'Not found'});
+        res.status(403).send({message: 'Not found'});
     }
 });
 

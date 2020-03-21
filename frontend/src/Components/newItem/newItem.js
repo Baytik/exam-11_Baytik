@@ -19,6 +19,9 @@ class NewPost extends Component {
     fileChangeHandler = e => {this.setState({[e.target.name]: e.target.files[0]})};
 
     postNewItem = async () => {
+        if (this.state.price <= 0) {
+            alert('Price not will be zero')
+        } else {
         const formData = new FormData();
         formData.append('title', this.state.title);
         formData.append('description', this.state.description);
@@ -26,6 +29,7 @@ class NewPost extends Component {
         formData.append('category', this.state.category);
         formData.append('price', this.state.price);
         await this.props.createItem(formData);
+        }
     };
 
     render() {

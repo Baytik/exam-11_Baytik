@@ -5,7 +5,6 @@ const bcrypt = require("bcrypt");
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-    console.log(req.body);
     const object = {
         username: req.body.username,
         password: req.body.password,

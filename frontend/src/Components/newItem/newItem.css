@@ -1,0 +1,43 @@
+.new-item {
+    margin-top: 30px;
+}
+.new-item-block {
+    margin: 15px 0;
+}
+.new-item-block span {
+    font-size: 20px;
+}
+.input-1 {
+    margin-left: 20%;
+    border: 2px solid black;
+    font-size: 18px;
+    width: 350px;
+    padding: 5px;
+}
+.input-2 {
+    margin-left: 13%;
+    border: 2px solid black;
+    font-size: 18px;
+    width: 350px;
+    padding: 5px 5px 150px 5px;
+}
+.input-3 {
+    margin-left: 19%;
+    font-size: 18px;
+}
+select {
+    font-size: 18px;
+    margin-left: 16%;
+    background: white;
+    cursor: pointer;
+    padding: 3px;
+}
+.btn {
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 3px 7px;
+    margin-top: 20px;
+    margin-left: 20px;
+}

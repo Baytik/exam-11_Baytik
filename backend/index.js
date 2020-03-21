@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const users = require('./app/users');
 const items = require('./app/items');
-/*const comments = require('./app/comments');*/
+const item = require('./app/item');
 
 const app = express();
 const port = 8000;
@@ -21,7 +21,7 @@ const run = async () => {
     });
     app.use('/users', users);
     app.use('/items', items);
-    /*app.use('/comments', comments);*/
+    app.use('/item', item);
     app.listen(port)
 };
 

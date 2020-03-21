@@ -5,7 +5,7 @@ const path = require('path');
 const nanoid = require('nanoid');
 const multer = require('multer');
 
-const Post = require('../models/Item');
+const Item = require('../models/Item');
 const auth = require('../middleware/auth');
 
 const storage = multer.diskStorage({
@@ -18,14 +18,14 @@ const storage = multer.diskStorage({
 });
 const upload = multer({storage});
 
-router.get('/', async (req, res) => {
-    const posts = await Post.find();
-    return res.send(posts)
+router.get('/:id', async (req, res) => {
+    const post = await Item.find({category: req.params.id});
+    res.send(post)
 });
 
-router.get('/:id', async (req, res) => {
-    const post = await Post.find({category: req.params.id});
-    res.send(post)
+router.get('/', async (req, res) => {
+    const posts = await Item.find();
+    return res.send(posts)
 });
 
 router.post('/', upload.single('image'), auth, async (req, res) => {
@@ -43,7 +43,7 @@ router.post('/', upload.single('image'), auth, async (req, res) => {
         price: req.body.price
     };
 
-    const post = new Post(object);
+    const post = new Item(object);
 
     try {
         await post.save();

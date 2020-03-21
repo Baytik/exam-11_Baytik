@@ -3,13 +3,13 @@ import {push} from 'connected-react-router';
 
 export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS';
 export const FETCH_ITEMS_ERROR = 'FETCH_ITEMS_ERROR';
-export const FETCH_POST_SUCCESS = 'FETCH_POST_SUCCESS';
+export const FETCH_ITEM_SUCCESS = 'FETCH_ITEM_SUCCESS';
 
 export const CREATE_ITEM_ERROR = 'CREATE_ITEM_ERROR';
 
 export const fetchItemsSuccess = (items) => ({type: FETCH_ITEMS_SUCCESS, items});
 export const fetchItemsError = (error) => ({type: FETCH_ITEMS_ERROR, error});
-export const fetchPostSuccess = (post) => ({type: FETCH_POST_SUCCESS, post});
+export const fetchItemSuccess = (item) => ({type: FETCH_ITEM_SUCCESS, item});
 
 export const createItemError = (error) => ({type: CREATE_ITEM_ERROR, error});
 
@@ -24,11 +24,11 @@ export const fetchItems = (id) => {
     }
 };
 
-export const fetchPost = (id) => {
+export const fetchItem = (id) => {
     return async (dispatch) => {
         try {
-            const response = await axiosAPI.get(`/posts/${id}`);
-            dispatch(fetchPostSuccess(response.data))
+            const response = await axiosAPI.get(`/item/${id}`);
+            dispatch(fetchItemSuccess(response.data))
         } catch (error) {
             dispatch(fetchItemsError(error))
         }
